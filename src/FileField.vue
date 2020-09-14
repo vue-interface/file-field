@@ -10,6 +10,7 @@
                 v-bind-events
                 v-bind="controlAttributes"
                 type="file"
+                :multiple="multiple"
                 :value="value"
                 @change="$emit('change', $event.target.files)">
         </slot>
