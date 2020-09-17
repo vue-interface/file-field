@@ -1,9 +1,5 @@
 <template>
-    <div :class="formGroupClasses">
-        <slot name="label">
-            <label v-if="label" ref="label" :for="$attrs.id" class="custom-file-label" v-html="label" />
-        </slot>
-
+    <div class="form-file" :class="formGroupClasses">
         <slot name="control">
             <input
                 ref="field"
@@ -15,17 +11,27 @@
                 @change="$emit('change', $event.target.files)">
         </slot>
 
+        <slot name="label">
+            <label :for="$attrs.id" :class="legacy ? legacyLabelClass : labelClass">
+                <template v-if="legacy">{{ label || defaultLabel }}</template>
+                <template v-else>
+                    <span class="form-file-text">{{ label || defaultLabel }}</span>
+                    <span class="form-file-button">Browse</span>
+                </template>
+            </label>
+        </slot>
+
         <slot name="feedback">
             <div 
-                v-if="validFeedback"
-                class="valid-feedback"
-                valid
-                v-html="invalidFeedback" />
-            <div 
-                v-else-if="invalidFeedback"
+                v-if="invalidFeedback"
                 class="invalid-feedback"
                 invalid
                 v-html="invalidFeedback" />
+            <div 
+                v-else-if="validFeedback"
+                class="valid-feedback"
+                valid
+                v-html="validFeedback" />
         </slot>
 
         <slot name="help">
@@ -37,13 +43,13 @@
 </template>
 
 <script>
-import InputField from '@vue-interface/input-field';
+import FormControl from '@vue-interface/form-control';
 
 export default {
 
-    name: 'FileField',
-
-    extends: InputField,
+    mixins: [
+        FormControl
+    ],
 
     model: {
         event: 'change'
@@ -70,7 +76,47 @@ export default {
          */
         defaultControlClass: {
             type: String,
+            default: 'form-file-input'
+        },
+
+        /**
+         * The label
+         *
+         * @property String
+         */
+        label: {
+            type: String,
+            default: 'Choose file...'
+        },
+
+        /**
+         * The class name assigned to the control element
+         *
+         * @property String
+         */
+        labelClass: {
+            type: String,
+            default: 'form-file-label'
+        },
+
+        /**
+         * The legacy class name assigned to the control element
+         *
+         * @property String
+         */
+        legacyControlClass: {
+            type: String,
             default: 'custom-file-input'
+        },
+
+        /**
+         * The legacy class name assigned to the control element
+         *
+         * @property String
+         */
+        legacyLabelClass: {
+            type: String,
+            default: 'custom-file-label'
         },
 
         /**
@@ -100,6 +146,16 @@ export default {
          * @property String
          */
         width: [Number, String]
+
+    },
+
+    computed: {
+
+        controlClass() {
+            return this.custom ? this.customControlClass : (
+                this.legacy ? this.legacyControlClass : this.defaultControlClass
+            );
+        }
 
     }
 

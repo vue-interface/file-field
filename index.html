@@ -6,21 +6,29 @@
         <title>FileField</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="./dist/FileField.css">
+
     </head>
     <body>
         <form id="app" class="container">
             <h1 class="mb-5">file-field</h1>
 
-            <file-field label="Text Field" multiple></file-field>
-            <file-field label="Descriptive Text Field" help-text="Some helpful text goes here."></file-field>
+            <file-field></file-field>
+            <file-field multiple></file-field>
+            <file-field label="Some label goes here" help-text="Some helpful text goes here."></file-field>
 
             <hr>
             
             <h3>Validation</h3>
 
-            <file-field label="Single Inline Error" error="This is an inline error."></file-field>
+            <div class="was-validated">
+                <file-field feedback="This field is valid"></file-field>
+                <file-field label="Single Inline Error" error="This is an inline error."></file-field>
+                <file-field name="test" label="Multiple Errors From Object" :errors="{'test': ['This is an inline error #1.', 'This is an inline error #2.']}"></file-field>
+            </div>
 
-            <file-field name="test" label="Multiple Errors From Object" :errors="{'test': ['This is an inline error #1.', 'This is an inline error #2.']}"></file-field>
+            <h3>Legacy Classes</h3>
+            <p>This components supports both Bootstrap 4 and 5 classes. You must add a "legacy" parameter if using with Bootstrap 4.</p>
+            <file-field legacy></file-field>
         </form>
 
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
