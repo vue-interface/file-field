@@ -1,6 +1,6 @@
 {
   "name": "@vue-interface/file-field",
-  "version": "0.9.4",
+  "version": "0.9.5",
   "description": "A Vue file field component.",
   "main": "index.js",
   "scripts": {
