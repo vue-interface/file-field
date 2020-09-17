@@ -8,7 +8,7 @@
                 type="file"
                 :multiple="multiple"
                 :value="value"
-                @change="$emit('change', $event.target.files)">
+                @input="$emit('input', $event.target.files)">
         </slot>
 
         <slot name="label">
@@ -50,10 +50,6 @@ export default {
     mixins: [
         FormControl
     ],
-
-    model: {
-        event: 'change'
-    },
 
     props: {
 
@@ -158,7 +154,6 @@ export default {
         }
 
     }
-
 };
 </script>
 
