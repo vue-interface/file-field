@@ -135,6 +135,11 @@ export default {
 
     computed: {
 
+
+        componentName() {
+            return this.legacy ? 'custom-file' : 'form-file';
+        },
+
         controlClass() {
             return this.custom ? this.customControlClass : (
                 this.legacy ? this.legacyControlClass : this.defaultControlClass
