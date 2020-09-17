@@ -54,18 +54,6 @@ export default {
     props: {
 
         /**
-         * An array of event names that correlate with callback functions
-         *
-         * @property Function
-         */
-        bindEvents: {
-            type: Array,
-            default() {
-                return ['focus', 'blur', 'input', 'click', 'keyup', 'keydown', 'progress'];
-            }
-        },
-
-        /**
          * The class name assigned to the control element
          *
          * @property String

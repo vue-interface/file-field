@@ -1335,12 +1335,12 @@ if (typeof window !== 'undefined') {
 // Indicate to webpack that this file can be concatenated
 /* harmony default export */ var setPublicPath = (null);
 
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"5be96397-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/FileField.vue?vue&type=template&id=8f536ab6&
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"000a5f5a-vue-loader-template"}!./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/vue-loader/lib??vue-loader-options!./src/FileField.vue?vue&type=template&id=10ca6458&
 var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"form-file",class:_vm.formGroupClasses},[_vm._t("control",[_c('input',_vm._b({directives:[{name:"bind-events",rawName:"v-bind-events"}],ref:"field",attrs:{"type":"file","multiple":_vm.multiple},domProps:{"value":_vm.value},on:{"input":function($event){return _vm.$emit('input', $event.target.files)}}},'input',_vm.controlAttributes,false))]),_vm._t("label",[_c('label',{class:_vm.legacy ? _vm.legacyLabelClass : _vm.labelClass,attrs:{"for":_vm.$attrs.id}},[(_vm.legacy)?[_vm._v(_vm._s(_vm.label || _vm.defaultLabel))]:[_c('span',{staticClass:"form-file-text"},[_vm._v(_vm._s(_vm.label || _vm.defaultLabel))]),_c('span',{staticClass:"form-file-button"},[_vm._v("Browse")])]],2)]),_vm._t("feedback",[(_vm.invalidFeedback)?_c('div',{staticClass:"invalid-feedback",attrs:{"invalid":""},domProps:{"innerHTML":_vm._s(_vm.invalidFeedback)}}):(_vm.validFeedback)?_c('div',{staticClass:"valid-feedback",attrs:{"valid":""},domProps:{"innerHTML":_vm._s(_vm.validFeedback)}}):_vm._e()]),_vm._t("help",[(_vm.helpText)?_c('small',{ref:"help"},[_vm._v(" "+_vm._s(_vm.helpText)+" ")]):_vm._e()])],2)}
 var staticRenderFns = []
 
 
-// CONCATENATED MODULE: ./src/FileField.vue?vue&type=template&id=8f536ab6&
+// CONCATENATED MODULE: ./src/FileField.vue?vue&type=template&id=10ca6458&
 
 // EXTERNAL MODULE: ./node_modules/core-js/modules/es.number.constructor.js
 var es_number_constructor = __webpack_require__("a9e3");
@@ -2466,18 +2466,6 @@ const CUSTOM_PREFIX = 'custom';
 /* harmony default export */ var FileFieldvue_type_script_lang_js_ = ({
   mixins: [form_control],
   props: {
-    /**
-     * An array of event names that correlate with callback functions
-     *
-     * @property Function
-     */
-    bindEvents: {
-      type: Array,
-      "default": function _default() {
-        return ['focus', 'blur', 'input', 'click', 'keyup', 'keydown', 'progress'];
-      }
-    },
-
     /**
      * The class name assigned to the control element
      *
